@@ -84,7 +84,7 @@ const Login: FC = () => {
           </Button>
         </Grid>
       </Grid>
-      <Grid width="100%" display="flex" justifyContent="center" alignItems="center" p={2}><img height="30" width="180" src="https://qodeless.io/wp-content/uploads/2021/09/logo3.png" /></Grid>
+      <Grid width="100%" display="flex" justifyContent="center" alignItems="center" p={2}><img height="35" width="180" src="https://qodeless.io/wp-content/uploads/2021/09/logo3.png" /></Grid>
     </Box>
   );
 };
