@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthGuard from "./components/AuthGuard";
 import GuestGuard from "./components/GuestGuard";
 import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
 
 const PathRoutes: FC = () => {
   return (
@@ -13,6 +14,7 @@ const PathRoutes: FC = () => {
           <Route path="login" element={<LoginPage />} />
         </Route>
         <Route element={<AuthGuard />}>
+          <Route path="/" element={<HomePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
