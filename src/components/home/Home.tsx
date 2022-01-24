@@ -20,19 +20,41 @@ const Home: FC = () => {
       <Grid />
       <Grid
         display="flex"
-        flexDirection="column"
         justifyContent="center"
         alignItems="center"
         width="80%"
-        height="80%"
-        p={4}
-        sx={{
-          borderRadius: "5px",
-          backgroundColor: "#fff",
-          boxShadow: "0 0 5px #0000004F",
-        }}
+        height="100%"
       >
-        <Register />
+        <Grid
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          width="70%"
+          height="80%"
+          sx={{
+            borderRadius: "5px",
+            backgroundColor: "#fff",
+            boxShadow: "0 0 5px #0000004F",
+          }}
+        >
+          <Register />
+        </Grid>
+        <Grid
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          width="30%"
+          height="80%"
+          sx={{
+            borderRadius: "5px",
+            backgroundColor: "#fff",
+            boxShadow: "0 0 5px #0000004F",
+          }}
+        >
+          <Register />
+        </Grid>
       </Grid>
       <Grid
         width="100%"
