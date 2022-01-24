@@ -3,6 +3,7 @@ import type { FC } from "react";
 import { Box } from "@mui/system";
 import { Grid } from "@mui/material";
 import Register from "./register/Register";
+import Impostors from "./impostors/Impostors";
 
 const Home: FC = () => {
   return (
@@ -12,8 +13,8 @@ const Home: FC = () => {
       justifyContent="space-between"
       sx={{
         width: "100%",
-        height: "100vh",
-        backgroundImage: "linear-gradient(90deg, #ccc, #444)",
+        height: "100%",
+        backgroundColor: "#E5E5E5",
         flexDirection: "column",
       }}
     >
@@ -32,6 +33,7 @@ const Home: FC = () => {
           alignItems="center"
           width="70%"
           height="80%"
+          mx={1}
           sx={{
             borderRadius: "5px",
             backgroundColor: "#fff",
@@ -41,6 +43,7 @@ const Home: FC = () => {
           <Register />
         </Grid>
         <Grid
+          mx={1}
           display="flex"
           flexDirection="column"
           justifyContent="center"
@@ -53,7 +56,7 @@ const Home: FC = () => {
             boxShadow: "0 0 5px #0000004F",
           }}
         >
-          <Register />
+          <Impostors />
         </Grid>
       </Grid>
       <Grid

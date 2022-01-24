@@ -4,6 +4,7 @@ import { Box } from "@mui/system";
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { Logo } from "../../images";
 
 const Login: FC = () => {
   const { Login: LoginFunc } = useAuth();
@@ -16,8 +17,8 @@ const Login: FC = () => {
 
   const handleLogin = async () => {
     try {
-      await LoginFunc(login);
-      navigate("/home");
+      await LoginFunc(email, password);
+      navigate("/");
     } catch {
       console.log("Um erro ocorreu!");
     }
@@ -28,7 +29,12 @@ const Login: FC = () => {
       display="flex"
       alignItems="center"
       justifyContent="space-between"
-      sx={{ width: "100%", height: "100vh", backgroundImage: "linear-gradient(75deg, #ccc, #444)", flexDirection: 'column' }}
+      sx={{
+        width: "100%",
+        height: "100vh",
+        backgroundCalor: "#fff",
+        flexDirection: "column",
+      }}
     >
       <Grid />
       <Grid
@@ -40,10 +46,17 @@ const Login: FC = () => {
         sx={{
           borderRadius: "5px",
           backgroundColor: "#fff",
-          boxShadow: "0 0 5px #0000004F",
+          boxShadow: "0 0 15px #0000004F",
         }}
       >
-        <Typography variant="h2">LOGIN</Typography>
+        <img alt="logo" height="120" width="120" src={`${Logo}`} />
+        <Grid
+          style={{ borderRadius: "10px", border: "2px solid #8A3B3B" }}
+          px={8}
+          py={1}
+        >
+          <Typography color="#8A3B3B">ALMONDE’GUS</Typography>
+        </Grid>
         <Grid
           display="flex"
           justifyContent="center"
@@ -53,38 +66,86 @@ const Login: FC = () => {
           p={2}
           m={0}
         >
-          <Grid item width="100%" lg={12} md={12} sm={12}>
+          <Typography>ACESSO AO PORTAL ADMINISTRATIVO</Typography>
+          <Grid
+            item
+            display="flex"
+            justifyContent="center"
+            width="100%"
+            lg={12}
+            md={12}
+            sm={12}
+          >
             <TextField
-              fullWidth
-              label="E-mail"
+              label="E-mail de acesso"
               name="email"
-              sx={{ '& .MuiInput-root': { borderRadius: 0 } }}
+              sx={{ width: "50%", "& .MuiInput-root": { borderRadius: 0 } }}
               onChange={(e: any) =>
                 setLogin({ ...login, [e.target.name]: e.target.value })
               }
               value={email}
             />
           </Grid>
-          <Grid item width="100%" lg={12} md={12} sm={12}>
+          <Grid
+            item
+            display="flex"
+            justifyContent="center"
+            width="100%"
+            lg={12}
+            md={12}
+            sm={12}
+          >
             <TextField
               fullWidth
-              label="Senha"
+              type="password"
+              label="Senha de acesso"
               name="password"
-              sx={{ '& .MuiTextField-root': { borderRadius: 0 } }}
+              sx={{ width: "50%", "& .MuiTextField-root": { borderRadius: 0 } }}
               onChange={(e: any) =>
                 setLogin({ ...login, [e.target.name]: e.target.value })
               }
               value={password}
             />
           </Grid>
+          <Grid
+            item
+            display="flex"
+            justifyContent="center"
+            width="100%"
+            lg={12}
+            md={12}
+            sm={12}
+          >
+            <Button
+              fullWidth
+              onClick={() => handleLogin()}
+              variant="contained"
+              sx={{ width: "50%" }}
+              style={{
+                backgroundColor: "#8A3B3B",
+              }}
+            >
+              Log in
+            </Button>
+          </Grid>
         </Grid>
-        <Grid>
-          <Button onClick={handleLogin} variant="contained"  style={{backgroundImage: "linear-gradient(-75deg, #ccc, #5d5d5d)"}}>
-            Entrar
-          </Button>
-        </Grid>
+        <Grid></Grid>
       </Grid>
-      <Grid width="100%" display="flex" justifyContent="center" alignItems="center" p={2}><img height="35" width="180" src="https://qodeless.io/wp-content/uploads/2021/09/logo3.png" /></Grid>
+      <Grid
+        width="100%"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        style={{ backgroundColor: '#444' }}
+        p={2}
+      >
+        <img
+          alt="logo"
+          height="35"
+          width="180"
+          src="https://qodeless.io/wp-content/uploads/2021/09/logo3.png"
+        />
+      </Grid>
     </Box>
   );
 };

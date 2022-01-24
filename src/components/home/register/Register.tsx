@@ -9,14 +9,12 @@ import {
   Typography,
 } from "@mui/material";
 import moment from "moment";
-import { sha256 } from "js-sha256";
+// import { sha256 } from "js-sha256";
+import { authApi } from "../../../api/AuthApi";
 
-// sha256(nome+telefone+area+indicador+dataindicacao+ubuntu)
 const Register: FC = () => {
   const [area, setArea] = useState(0);
-  const [date, setDate] = useState<Date | null | string>(
-    moment().format("yyyy-MM-DD")
-  );
+  const [date, setDate] = useState<string>(moment().format("yyyy-MM-DD"));
   const [ubunto, setUbunto] = useState({
     name: "",
     tel: "",
@@ -24,8 +22,26 @@ const Register: FC = () => {
     indicator: "",
     date,
   });
-  const { name, tel, area: areaSTR, indicator, date: dateSTR } = ubunto;
-  const sendHash =sha256(`${name}+${tel}+${areaSTR}+${indicator}+${dateSTR}+ubunto`);
+  const { name, tel } = ubunto;
+  // const { name, tel, area: areaSTR, indicator, date: dateSTR } = ubunto;
+  // const sendHash = sha256(`${name}+${tel}+${areaSTR.toString()}+${indicator}+${dateSTR.toString()}+ubuntu`);
+  const sendHash =
+    "7b4040f593b12528960b92496e3aac02392b8f4ff2a91e56f3eaac9750b5fb73";
+
+  const handleCadastro = async () => {
+    try {
+      await authApi.UbuntoRegister(
+        name,
+        tel,
+        date,
+        sendHash,
+        area
+      );
+      window.location.reload();
+    } catch {
+      console.log("erro!");
+    }
+  };
   console.log(sendHash);
   return (
     <Grid width="100%" container spacing={2} p={2}>
@@ -38,7 +54,7 @@ const Register: FC = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Typography variant="h2">Cadastre um Ubunto</Typography>
+        <Typography variant="h4">Cadastre um Ubunto</Typography>
       </Grid>
       <Grid item lg={6} md={6} sm={12}>
         <TextField
@@ -110,7 +126,9 @@ const Register: FC = () => {
         md={12}
         sm={12}
       >
-        <Button variant="contained">Cadastrar</Button>
+        <Button onClick={() => handleCadastro()} variant="contained">
+          Cadastrar
+        </Button>
       </Grid>
     </Grid>
   );

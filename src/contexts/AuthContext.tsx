@@ -27,7 +27,7 @@ export const Context = createContext({} as TAuthContext);
 const AuthContext: FC<AuthProviderProps> = (props) => {
   const { children } = props;
   const [autenticated, setAutenticated] = useState(false);
-  const [user, setUser] = useState({
+  const [user] = useState({
     userId: "",
     roleId: "",
     userName: "",
@@ -37,12 +37,9 @@ const AuthContext: FC<AuthProviderProps> = (props) => {
   console.log('autenticated: ', autenticated);
   useEffect(() => {
     const token = window.sessionStorage.getItem('token');
-    const jsonUser = window.sessionStorage.getItem('user');
-    if (token && jsonUser) {
-      const data = JSON.parse(jsonUser);
+    if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer  ${token}`;
       setAutenticated(true);
-      setUser(data);
     } else {
       axios.defaults.headers.common["Authorization"] = "";
       window.sessionStorage.clear();
@@ -52,15 +49,14 @@ const AuthContext: FC<AuthProviderProps> = (props) => {
 
   const Login = async (email: string, password: string) => {
     try {
-      const {
-        success,
-        data: { token },
-      } = await authApi.Token(email, password);
+      const { success, data: { token } } = await authApi.Token(email, password);
+      console.log(token, success);
       axios.defaults.headers.common["Authorization"] = `Bearer  ${token}`;
       window.sessionStorage.setItem('token', token);
       
       setAutenticated(success);
-    } catch {
+    } catch (err) {
+      console.log(err)
       axios.defaults.headers.common["Authorization"] = "";
       window.sessionStorage.clear();
       setAutenticated(false);
