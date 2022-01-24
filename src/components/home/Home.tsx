@@ -2,6 +2,7 @@ import React from "react";
 import type { FC } from "react";
 import { Box } from "@mui/system";
 import { Grid } from "@mui/material";
+import Register from "./register/Register";
 
 const Home: FC = () => {
   return (
@@ -30,7 +31,9 @@ const Home: FC = () => {
           backgroundColor: "#fff",
           boxShadow: "0 0 5px #0000004F",
         }}
-      ></Grid>
+      >
+        <Register />
+      </Grid>
       <Grid
         width="100%"
         display="flex"
