@@ -28,7 +28,7 @@ const Login: FC = () => {
       display="flex"
       alignItems="center"
       justifyContent="space-between"
-      sx={{ width: "100%", height: "100vh", backgroundImage: "linear-gradient(90deg, #ccc, #444)", flexDirection: 'column' }}
+      sx={{ width: "100%", height: "100vh", backgroundImage: "linear-gradient(75deg, #ccc, #444)", flexDirection: 'column' }}
     >
       <Grid />
       <Grid
@@ -79,12 +79,12 @@ const Login: FC = () => {
           </Grid>
         </Grid>
         <Grid>
-          <Button onClick={handleLogin} variant="contained">
+          <Button onClick={handleLogin} variant="contained"  style={{backgroundImage: "linear-gradient(-75deg, #ccc, #5d5d5d)"}}>
             Entrar
           </Button>
         </Grid>
       </Grid>
-      <Grid width="100%" display="flex" justifyContent="center" alignItems="center" p={2}>QODELESS 2022</Grid>
+      <Grid width="100%" display="flex" justifyContent="center" alignItems="center" p={2}><img height="30" width="180" src="https://qodeless.io/wp-content/uploads/2021/09/logo3.png" /></Grid>
     </Box>
   );
 };
