@@ -12,6 +12,7 @@ const PathRoutes: FC = () => {
       <Routes>
         <Route element={<GuestGuard />}>
           <Route path="login" element={<LoginPage />} />
+          <Route path="/home" element={<HomePage />} />
         </Route>
         <Route element={<AuthGuard />}>
           <Route path="/" element={<HomePage />} />

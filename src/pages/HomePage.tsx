@@ -1,8 +1,7 @@
-import React from 'react';
-import type { FC } from 'react';
+import React from "react";
+import type { FC } from "react";
+import Home from "../components/home/Home";
 
-const HomePage: FC = () => {
-  return <div />;
-}
+const LoginPage: FC = () => <Home />;
 
-export default HomePage;
+export default LoginPage;
