@@ -34,7 +34,6 @@ const AuthContext: FC<AuthProviderProps> = (props) => {
     email: "",
     role: "",
   });
-  console.log('autenticated: ', autenticated);
   useEffect(() => {
     const token = window.sessionStorage.getItem('token');
     if (token) {
@@ -50,7 +49,6 @@ const AuthContext: FC<AuthProviderProps> = (props) => {
   const Login = async (email: string, password: string) => {
     try {
       const { success, data: { token } } = await authApi.Token(email, password);
-      console.log(token, success);
       axios.defaults.headers.common["Authorization"] = `Bearer  ${token}`;
       window.sessionStorage.setItem('token', token);
       

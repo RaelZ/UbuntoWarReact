@@ -6,6 +6,7 @@ import GuestGuard from "./components/GuestGuard";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import Dashboard from "./components/dashboard/Dashboard";
+import RegisterPage from "./pages/RegisterPage";
 
 const PathRoutes: FC = () => {
   return (
@@ -17,6 +18,7 @@ const PathRoutes: FC = () => {
         <Route element={<AuthGuard />}>
           <Route element={<Dashboard />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/cadastro" element={<RegisterPage />} />
           </Route>
         </Route>
       </Routes>

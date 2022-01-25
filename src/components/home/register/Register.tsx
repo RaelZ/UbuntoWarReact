@@ -9,8 +9,8 @@ import {
   Typography,
 } from "@mui/material";
 import moment from "moment";
-// import { sha256 } from "js-sha256";
 import { authApi } from "../../../api/AuthApi";
+// import { sha256 } from "js-sha256";
 
 const Register: FC = () => {
   const [area, setArea] = useState(0);
@@ -22,27 +22,20 @@ const Register: FC = () => {
     indicator: "",
     date,
   });
+  // const { name, tel, area: areaSTR, date: dateSTR } = ubunto;
   const { name, tel } = ubunto;
-  // const { name, tel, area: areaSTR, indicator, date: dateSTR } = ubunto;
-  // const sendHash = sha256(`${name}+${tel}+${areaSTR.toString()}+${indicator}+${dateSTR.toString()}+ubuntu`);
+  // const sendHash = sha256(`${name}${tel}${areaSTR}${dateSTR}ubuntu`);
   const sendHash =
     "7b4040f593b12528960b92496e3aac02392b8f4ff2a91e56f3eaac9750b5fb73";
 
   const handleCadastro = async () => {
     try {
-      await authApi.UbuntoRegister(
-        name,
-        tel,
-        date,
-        sendHash,
-        area
-      );
+      await authApi.UbuntoRegister(name, tel, date, sendHash, area);
       window.location.reload();
     } catch {
       console.log("erro!");
     }
   };
-  console.log(sendHash);
   return (
     <Grid width="100%" container spacing={2} p={2}>
       <Grid

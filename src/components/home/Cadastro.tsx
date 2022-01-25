@@ -2,9 +2,9 @@ import React from "react";
 import type { FC } from "react";
 import { Box } from "@mui/system";
 import { Grid } from "@mui/material";
-import Impostors from "./impostors/Impostors";
+import Register from "./register/Register";
 
-const Home: FC = () => {
+const Cadastro: FC = () => {
   return (
     <Box
       display="flex"
@@ -26,20 +26,20 @@ const Home: FC = () => {
         height="100%"
       >
         <Grid
-          mx={1}
           display="flex"
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
-          width="30%"
+          width="70%"
           height="80%"
+          mx={1}
           sx={{
             borderRadius: "5px",
             backgroundColor: "#fff",
             boxShadow: "0 0 5px #0000004F",
           }}
         >
-          <Impostors />
+          <Register />
         </Grid>
       </Grid>
       <Grid
@@ -55,4 +55,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default Cadastro;
